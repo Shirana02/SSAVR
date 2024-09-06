@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sas_avr_dnet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11b8a58ffa7d7345415dd826bc72bf0eb567cd65")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e97d9a5b2785058c3f47c7dfb035866867a444b")]
 [assembly: System.Reflection.AssemblyProductAttribute("sas_avr_dnet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sas_avr_dnet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
