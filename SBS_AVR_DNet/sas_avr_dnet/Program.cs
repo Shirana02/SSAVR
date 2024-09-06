@@ -14,7 +14,7 @@ try
 InstructionList codeInstructions;
 try
 {
-	codeInstructions = AsmCodeLoader.FromPrimitiveAsmCode_All(@".\sample_PrimitiveAsmCode.pac",instructionDefinition);
+	codeInstructions = AsmCodeLoader.FromPrimitiveAsmCode_All(@".\sample_PrimitiveAsmCode.spac",instructionDefinition);
 }catch(Exception ex){
 	Console.WriteLine("PrimitiveAsmCodeの翻訳に失敗しました。");
 	Console.WriteLine(ex.Message);
