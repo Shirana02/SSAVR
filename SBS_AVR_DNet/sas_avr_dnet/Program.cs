@@ -1,5 +1,7 @@
-﻿using sas_avr_dnet;
-using System.Reflection.Metadata.Ecma335;
+﻿using sas_avr_dnet.AsmCode;
+using sas_avr_dnet.InnerLogic_Instruction;
+using sas_avr_dnet.IntelHex;
+using System.Diagnostics;
 
 InstructionList instructionDefinition;
 try
@@ -11,17 +13,27 @@ try
 	return;
 }
 
+string srcPath_asmCodeFile = @".\SrcCode.sac";
+string dstPath_primitiveAsmCodeFile = @".\SrcCode.spac";
+try{
+	AsmCodeLoader.MakePrimitiveAsmCodeFile(srcPath_asmCodeFile,dstPath_primitiveAsmCodeFile);
+}catch(Exception ex){
+	Console.WriteLine("ソースコードのプリプロセスに失敗しました。");
+	Console.WriteLine(ex.Message);
+	return;
+}
+
 InstructionList codeInstructions;
 try
 {
-	codeInstructions = AsmCodeLoader.FromPrimitiveAsmCode_All(@".\sample_PrimitiveAsmCode.spac",instructionDefinition);
+	codeInstructions = AsmCodeLoader.FromPrimitiveAsmCode(@".\SrcCode.spac",instructionDefinition);
 }catch(Exception ex){
 	Console.WriteLine("PrimitiveAsmCodeの翻訳に失敗しました。");
 	Console.WriteLine(ex.Message);
 	return;
 }
 
-Console.WriteLine("ーーーアセンブル結果：命令語毎ーーー");
+Console.WriteLine("ーーーアセンブル結果ーーー");
 uint address = 0;
 foreach(Instruction inst in codeInstructions.Instructions){
 	Console.WriteLine(Convert.ToString(address,16).PadLeft(4,' ') + ":" + inst.Mnimonic + ":" + inst.ToBinText());
